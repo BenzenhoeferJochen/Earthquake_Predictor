@@ -2,7 +2,7 @@
 resource "aws_security_group" "SSH_Security_Group" {
   description = "Allows SSH Access for Me"
   name        = "SSH_Security_Group"
-  vpc_id      = aws_vpc.Wordpress_VPC.id
+  vpc_id      = aws_vpc.Node_Red_VPC.id
 }
 
 # Allow SSH ingress
@@ -43,7 +43,7 @@ resource "aws_vpc_security_group_ingress_rule" "Node_Red_Rule" {
 resource "aws_security_group" "DB_Security_Group" {
   description = "Allows DB Access for Me"
   name        = "DB_Security_Group"
-  vpc_id      = aws_vpc.Wordpress_VPC.id
+  vpc_id      = aws_vpc.Node_Red_VPC.id
 }
 
 # Allow DB ingress
@@ -59,7 +59,7 @@ resource "aws_vpc_security_group_ingress_rule" "DB_Rule" {
 resource "aws_security_group" "Out_Security_Group" {
   description = "Allows all outgress traffic"
   name        = "Out_Security_Group"
-  vpc_id      = aws_vpc.Wordpress_VPC.id
+  vpc_id      = aws_vpc.Node_Red_VPC.id
 }
 
 # Allow all outgress 
