@@ -1,0 +1,5 @@
+[Unit]
+Description="Hello World script"
+
+[Service]
+ExecStart=/usr/local/bin/refreshLab.sh

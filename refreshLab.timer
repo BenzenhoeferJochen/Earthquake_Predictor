@@ -1,0 +1,9 @@
+[Unit]
+Description="Run refreshLab service every hour"
+
+[Timer]
+OnCalendar=*-*-* *:00:00
+Unit=refreshLab.service
+
+[Install]
+WantedBy=multi-user.target
