@@ -131,5 +131,3 @@ Contributions are welcome! Please open issues or pull requests.
 ## 📫 Contact
 
 For questions or feedback, open an issue or email: \[[jochen.benzenhoefer@it-tem.de](mailto:jochen.benzenhoefer@it-tem.de)]
-
-```
