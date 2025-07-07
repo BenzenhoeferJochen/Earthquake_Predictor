@@ -3,10 +3,10 @@ Description=Node-RED is a tool for wiring together hardware devices, APIs and on
 After=syslog.target network.target
 
 [Service]
-Environment="NODE_OPTIONS=--max-old-space-size=128"
+Environment="NODE_OPTIONS=--max-old-space-size=1536"
 Environment="NODE_RED_OPTIONS=-v"
 #Full Path to Node.js
-ExecStart=/usr/local/bin/node $NODE_OPTIONS red.js $NODE_RED_OPTIONS
+ExecStart=/usr/bin/node $NODE_OPTIONS /usr/bin/node-red $NODE_RED_OPTIONS
 WorkingDirectory=/home/node-red/
 User=node-red
 Group=root
