@@ -1,0 +1,22 @@
+[Unit]
+Description=Node-RED is a tool for wiring together hardware devices, APIs and online services in new and interesting ways.
+After=syslog.target network.target
+
+[Service]
+Environment="NODE_OPTIONS=--max-old-space-size=1536"
+Environment="NODE_RED_OPTIONS=-v"
+#Full Path to Node.js
+ExecStart=/usr/bin/node $NODE_OPTIONS /usr/bin/node-red $NODE_RED_OPTIONS
+WorkingDirectory=/home/node-red/
+User=node-red
+Group=root
+Nice=10
+SyslogIdentifier=Node-RED
+StandardOutput=syslog
+# Make Node-RED restart if it fails
+Restart=on-failure
+# Node-RED need a SIGINT to be notified to stop
+KillSignal=SIGINT
+
+[Install]
+WantedBy=multi-user.target
