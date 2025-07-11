@@ -68,3 +68,19 @@ resource "aws_vpc_security_group_egress_rule" "Out_Rule" {
   ip_protocol       = -1
   cidr_ipv4         = "0.0.0.0/0"
 }
+
+# Create a Back End Security Group
+resource "aws_security_group" "Back_End_Security_Group" {
+  description = "Allows Back End Access for the frontend Servers"
+  name        = "Back_End_Security_Group"
+  vpc_id      = aws_vpc.Node_Red_VPC.id
+}
+
+# Allow Back End ingress
+resource "aws_vpc_security_group_ingress_rule" "Back_End_Rule" {
+  security_group_id = aws_security_group.Back_End_Security_Group.id
+  ip_protocol       = "tcp"
+  from_port         = 8000
+  to_port           = 8000
+  cidr_ipv4         = "0.0.0.0/0"
+}
