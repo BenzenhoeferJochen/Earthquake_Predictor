@@ -5,18 +5,13 @@ amazon-linux-extras enable mariadb10.5
 
 yum install -y python3 python3-pip python3-virtualenv mariadb105-server gcc-c++ make pkgconfig python3-devel
 
-systemctl start mariadb
-systemctl enable mariadb
-
-
 touch temp.sql
 
-echo "CREATE DATABASE ${db_database};" > temp.sql
-echo "CREATE USER '${db_user}'@'${db_address}' IDENTIFIED BY '${db_password}';" >> temp.sql
-echo "GRANT ALL PRIVILEGES ON ${db_database}.* TO '${db_user}'@'${db_address}';" >> temp.sql
+echo "CREATE USER IF NOT EXISTS '${db_user}'@'%' IDENTIFIED BY '${db_password}';" >> temp.sql
+echo "GRANT ALL PRIVILEGES ON ${db_database}.* TO '${db_user}'@'%';" >> temp.sql
 echo "FLUSH PRIVILEGES;" >> temp.sql
 
-mysql -u root < temp.sql
+mysql -p${db_password} -u root -h ${db_address} ${db_database} < temp.sql
 
 mkdir -p /home/ec2-user/ML
 echo '${database}' > /home/ec2-user/ML/database.py
