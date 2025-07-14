@@ -1,0 +1,2075 @@
+[
+    {
+        "id": "6bcce5fcbe71331f",
+        "type": "tab",
+        "label": "EarthquakePredictor",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "984c485202e0c9c0",
+        "type": "group",
+        "z": "6bcce5fcbe71331f",
+        "name": "Create Tables",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "181bf75b0a1c7ad3",
+            "ece0a041dcd2b4a9",
+            "1ff8f5c0cf49bb74",
+            "098e1a2a21928b25",
+            "54e5213695f38dc6",
+            "34dbc11c5f33b15d"
+        ],
+        "x": 14,
+        "y": 79,
+        "w": 632,
+        "h": 202
+    },
+    {
+        "id": "b252f3b759069dbf",
+        "type": "group",
+        "z": "6bcce5fcbe71331f",
+        "name": "Data YTD",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "0f0309ba4b498cf7",
+            "3f6ac2687f202a9e",
+            "b8a57053e3edf9c7",
+            "dab123d6626265ce",
+            "a9bbc1e2167c1e42",
+            "e03366d6de1fcd90",
+            "d90e92501097906b",
+            "d5df6f4ce58c8226",
+            "0ef6e6659f3292cb"
+        ],
+        "x": 14,
+        "y": 299,
+        "w": 1312,
+        "h": 142
+    },
+    {
+        "id": "bee619e5061e0a37",
+        "type": "group",
+        "z": "6bcce5fcbe71331f",
+        "name": "Current Data",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "f02ce9118157ba33",
+            "51e136e4efdf8f63",
+            "9be4c5c8ba10b4a6",
+            "8c7d7b08604ba4e5",
+            "2567f032a960e0ea"
+        ],
+        "x": 14,
+        "y": 479,
+        "w": 852,
+        "h": 142
+    },
+    {
+        "id": "0baaa4799385b3b1",
+        "type": "group",
+        "z": "6bcce5fcbe71331f",
+        "name": "Insert Data to the Database",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "0afd83eeb876bcce",
+            "6550a44f505c5b0c",
+            "473aa4b1d579c687",
+            "9c9c71148822be9b",
+            "bb7c068d553411a4",
+            "5ae6e4e5aa537647"
+        ],
+        "x": 1154,
+        "y": 479,
+        "w": 792,
+        "h": 122
+    },
+    {
+        "id": "d5a3b436daef04a0",
+        "type": "group",
+        "z": "6bcce5fcbe71331f",
+        "name": "Worldmap",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "eb0c82cee64f07de",
+            "9d0422c81103f89f",
+            "3d6c6d810e3d1b40",
+            "c518a74d3a4414ac",
+            "c8496a29bd29aab3",
+            "b98d294f7a4ea9eb",
+            "46832ab46e4fe84e",
+            "f71645b77b28916a",
+            "2e506cee41a8bbbf",
+            "9e736b8f39a0a85b",
+            "e3bee5e999a2f2a5",
+            "49484268a35eda2e",
+            "0c28a366a2cf5f8b",
+            "0712212303ebfea7",
+            "b0438502bc109d97",
+            "976fbd5d2048440d",
+            "c529bede690efba0",
+            "2b14eda9dc2905ac",
+            "8138442370dcb21c",
+            "0ac4058f5b6f0dc7",
+            "9786ab139d44e129",
+            "2f80222d206ce6d8",
+            "79e61beb9c78dbce",
+            "e61a3464e47ef417",
+            "fa5a092cb3872d9c",
+            "c87495824b7b2b21",
+            "4bbac42b6dce5e0c"
+        ],
+        "x": 14,
+        "y": 619,
+        "w": 1792,
+        "h": 302
+    },
+    {
+        "id": "f0aec5088aad151a",
+        "type": "group",
+        "z": "6bcce5fcbe71331f",
+        "name": "Charts",
+        "style": {
+            "label": true
+        },
+        "nodes": [
+            "51232afb466ee4e0",
+            "d4e806b005cce8d8",
+            "791e09a6d55b322e",
+            "3f0923ebe9eaab92",
+            "90c6c41987bb3326",
+            "59838411061123f8",
+            "1845789334fadf3a",
+            "99508586ad13bb75",
+            "c098fee5bc5d42eb",
+            "03611e1e8dea7626",
+            "f39f2012153165f4",
+            "bea3b28d4e9bf08b"
+        ],
+        "x": 1994,
+        "y": 539,
+        "w": 732,
+        "h": 282
+    },
+    {
+        "id": "8138442370dcb21c",
+        "type": "junction",
+        "z": "6bcce5fcbe71331f",
+        "g": "d5a3b436daef04a0",
+        "x": 1540,
+        "y": 760,
+        "wires": [
+            [
+                "eb0c82cee64f07de",
+                "2b14eda9dc2905ac"
+            ]
+        ]
+    },
+    {
+        "id": "2002ecfeada28fa2",
+        "type": "MySQLdatabase",
+        "z": "6bcce5fcbe71331f",
+        "name": "localtest",
+        "host": "${db_address}",
+        "port": "${db_port}",
+        "db": "${db_database}",
+        "tz": "",
+        "charset": "UTF8MB4"
+    },
+    {
+        "id": "97f588bc3b33d372",
+        "type": "ui-theme",
+        "name": "Earthquakes",
+        "colors": {
+            "surface": "#383838",
+            "primary": "#fbff24",
+            "bgPage": "#000000",
+            "groupBg": "#424242",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "988c63decab06e67",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "icon",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 5,
+        "showDisconnectNotification": true,
+        "allowInstall": true
+    },
+    {
+        "id": "a858647a745af8d6",
+        "type": "ui-page",
+        "name": "Earthquakes",
+        "ui": "988c63decab06e67",
+        "path": "/earthquakes",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "97f588bc3b33d372",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "f96033b41d6aa7d5",
+        "type": "ui-group",
+        "name": "Group Name",
+        "page": "a858647a745af8d6",
+        "width": "6",
+        "height": "1",
+        "order": 2,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "16d4a1a2cd890e9a",
+        "type": "ui-group",
+        "name": "My Group",
+        "page": "a858647a745af8d6",
+        "width": "6",
+        "height": "6",
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "f02ce9118157ba33",
+        "type": "http request",
+        "z": "6bcce5fcbe71331f",
+        "g": "bee619e5061e0a37",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 330,
+        "y": 520,
+        "wires": [
+            [
+                "9be4c5c8ba10b4a6"
+            ]
+        ]
+    },
+    {
+        "id": "51e136e4efdf8f63",
+        "type": "inject",
+        "z": "6bcce5fcbe71331f",
+        "g": "bee619e5061e0a37",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "30",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.2",
+        "topic": "INSERT INTO earthquakespast (id, mag, place, time, updated, tz, url, detail, felt, di, mmi, alert, status, tsunami, sig, net, code, ids, sources, types, nst, dmin, rms, gap, magType, type, longitude, latitude, depth ) VALUES (:id, :mag, :place, :time, :updated, :tz, :url, :detail, :felt, :cdi, :mmi, :alert, :status, :tsunami, :sig, :net, :code, :ids, :sources, :types, :nst, :dmin, :rms, :gap, :magType, :type, :longitude, :latitude, :depth ) ON DUPLICATE KEY UPDATE id =:id, mag =:mag, place =:place, time =:time, updated =:updated, tz =:tz, url =:url, detail =:detail, felt =:felt, di =:cdi, mmi =:mmi, alert =:alert, status =:status, tsunami =:tsunami, sig =:sig, net =:net, code =:code, ids =:ids, sources =:sources, types =:types, nst =:nst, dmin =:dmin, rms =:rms, gap =:gap, magType =:magType, type =:type, longitude =:longitude, latitude =:latitude, depth =:depth ;",
+        "x": 110,
+        "y": 520,
+        "wires": [
+            [
+                "f02ce9118157ba33"
+            ]
+        ]
+    },
+    {
+        "id": "9be4c5c8ba10b4a6",
+        "type": "json",
+        "z": "6bcce5fcbe71331f",
+        "g": "bee619e5061e0a37",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 490,
+        "y": 520,
+        "wires": [
+            [
+                "8c7d7b08604ba4e5"
+            ]
+        ]
+    },
+    {
+        "id": "0f0309ba4b498cf7",
+        "type": "http request",
+        "z": "6bcce5fcbe71331f",
+        "g": "b252f3b759069dbf",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 770,
+        "y": 340,
+        "wires": [
+            [
+                "3f6ac2687f202a9e"
+            ]
+        ]
+    },
+    {
+        "id": "8c7d7b08604ba4e5",
+        "type": "switch",
+        "z": "6bcce5fcbe71331f",
+        "g": "bee619e5061e0a37",
+        "name": "",
+        "property": "statusCode",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "200",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 630,
+        "y": 520,
+        "wires": [
+            [
+                "0afd83eeb876bcce"
+            ],
+            [
+                "2567f032a960e0ea"
+            ]
+        ]
+    },
+    {
+        "id": "3f6ac2687f202a9e",
+        "type": "json",
+        "z": "6bcce5fcbe71331f",
+        "g": "b252f3b759069dbf",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 930,
+        "y": 340,
+        "wires": [
+            [
+                "b8a57053e3edf9c7"
+            ]
+        ]
+    },
+    {
+        "id": "b8a57053e3edf9c7",
+        "type": "switch",
+        "z": "6bcce5fcbe71331f",
+        "g": "b252f3b759069dbf",
+        "name": "",
+        "property": "statusCode",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "200",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 1070,
+        "y": 340,
+        "wires": [
+            [
+                "0afd83eeb876bcce"
+            ],
+            [
+                "d5df6f4ce58c8226"
+            ]
+        ]
+    },
+    {
+        "id": "ece0a041dcd2b4a9",
+        "type": "inject",
+        "z": "6bcce5fcbe71331f",
+        "g": "984c485202e0c9c0",
+        "name": "create earthquakespast",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "CREATE TABLE earthquakespast (id VARCHAR(50) PRIMARY KEY, mag DECIMAL(4,2),place TEXT,time BIGINT,updated BIGINT,tz INT,url TEXT,detail TEXT,felt INT,di DECIMAL(4,2),mmi DECIMAL(4,2),alert VARCHAR(20),status VARCHAR(20),tsunami TINYINT,     sig INT,     net VARCHAR(10),     code VARCHAR(20),     ids TEXT,     sources TEXT,     types TEXT,     nst INT,     dmin DECIMAL(6,3),     rms DECIMAL(4,2),     gap DECIMAL(5,2),     magType VARCHAR(10),     type VARCHAR(20), longitude DECIMAL(10,6),     latitude DECIMAL(10,6),     depth DECIMAL(6,2) ) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;",
+        "x": 170,
+        "y": 120,
+        "wires": [
+            [
+                "181bf75b0a1c7ad3"
+            ]
+        ]
+    },
+    {
+        "id": "1ff8f5c0cf49bb74",
+        "type": "debug",
+        "z": "6bcce5fcbe71331f",
+        "g": "984c485202e0c9c0",
+        "name": "debug 13",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "098e1a2a21928b25",
+        "type": "inject",
+        "z": "6bcce5fcbe71331f",
+        "g": "984c485202e0c9c0",
+        "name": "create earthquakesfuture",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "CREATE TABLE earthquakesfuture (id VARCHAR(50) PRIMARY KEY, mag DECIMAL(4,2),place TEXT,time BIGINT,updated BIGINT,tz INT,url TEXT,detail TEXT,felt INT,di DECIMAL(4,2),mmi DECIMAL(4,2),alert VARCHAR(20),status VARCHAR(20),tsunami TINYINT,     sig INT,     net VARCHAR(10),     code VARCHAR(20),     ids TEXT,     sources TEXT,     types TEXT,     nst INT,     dmin DECIMAL(6,3),     rms DECIMAL(4,2),     gap DECIMAL(5,2),     magType VARCHAR(10),     type VARCHAR(20), longitude DECIMAL(10,6),     latitude DECIMAL(10,6),     depth DECIMAL(6,2) ) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;",
+        "payload": "",
+        "payloadType": "str",
+        "x": 170,
+        "y": 200,
+        "wires": [
+            [
+                "181bf75b0a1c7ad3"
+            ]
+        ]
+    },
+    {
+        "id": "0afd83eeb876bcce",
+        "type": "split",
+        "z": "6bcce5fcbe71331f",
+        "g": "0baaa4799385b3b1",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "property": "payload.features",
+        "x": 1230,
+        "y": 560,
+        "wires": [
+            [
+                "473aa4b1d579c687"
+            ]
+        ]
+    },
+    {
+        "id": "6550a44f505c5b0c",
+        "type": "json",
+        "z": "6bcce5fcbe71331f",
+        "g": "0baaa4799385b3b1",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 1550,
+        "y": 560,
+        "wires": [
+            [
+                "bb7c068d553411a4"
+            ]
+        ]
+    },
+    {
+        "id": "473aa4b1d579c687",
+        "type": "change",
+        "z": "6bcce5fcbe71331f",
+        "g": "0baaa4799385b3b1",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.features",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1390,
+        "y": 560,
+        "wires": [
+            [
+                "6550a44f505c5b0c"
+            ]
+        ]
+    },
+    {
+        "id": "bb7c068d553411a4",
+        "type": "function",
+        "z": "6bcce5fcbe71331f",
+        "g": "0baaa4799385b3b1",
+        "name": "function 32",
+        "func": "const data = msg.payload;\nmsg.payload = { 'id': data.id, ...data.properties, 'longitude': data.geometry.coordinates[0], 'latitude': data.geometry.coordinates[1], 'depth': data.geometry.coordinates[2] }\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1690,
+        "y": 560,
+        "wires": [
+            [
+                "9c9c71148822be9b",
+                "5ae6e4e5aa537647"
+            ]
+        ]
+    },
+    {
+        "id": "51232afb466ee4e0",
+        "type": "inject",
+        "z": "6bcce5fcbe71331f",
+        "g": "f0aec5088aad151a",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "payload.time",
+                "v": "",
+                "vt": "date"
+            },
+            {
+                "p": "series",
+                "v": "Magnitude",
+                "vt": "str"
+            },
+            {
+                "p": "avgCount",
+                "v": "500",
+                "vt": "num"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.3",
+        "topic": "select time as 'x', mag as 'y' from earthquakespast where time > :time - 754800000 order by x asc",
+        "x": 2150,
+        "y": 660,
+        "wires": [
+            [
+                "1845789334fadf3a"
+            ]
+        ]
+    },
+    {
+        "id": "d4e806b005cce8d8",
+        "type": "inject",
+        "z": "6bcce5fcbe71331f",
+        "g": "f0aec5088aad151a",
+        "name": "Reset Chart",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[]",
+        "payloadType": "json",
+        "x": 2470,
+        "y": 660,
+        "wires": [
+            [
+                "c098fee5bc5d42eb"
+            ]
+        ]
+    },
+    {
+        "id": "a9bbc1e2167c1e42",
+        "type": "inject",
+        "z": "6bcce5fcbe71331f",
+        "g": "b252f3b759069dbf",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "payload.time",
+                "v": "",
+                "vt": "date"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.2",
+        "topic": "select count(id) from earthquakespast where time < :time - 3600000 and time > :time - 86400000",
+        "x": 110,
+        "y": 340,
+        "wires": [
+            [
+                "dab123d6626265ce"
+            ]
+        ]
+    },
+    {
+        "id": "e03366d6de1fcd90",
+        "type": "switch",
+        "z": "6bcce5fcbe71331f",
+        "g": "b252f3b759069dbf",
+        "name": "",
+        "property": "payload[0].count(id)",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "1",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 410,
+        "y": 340,
+        "wires": [
+            [
+                "d90e92501097906b"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "d90e92501097906b",
+        "type": "change",
+        "z": "6bcce5fcbe71331f",
+        "g": "b252f3b759069dbf",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "INSERT INTO earthquakespast (id, mag, place, time, updated, tz, url, detail, felt, di, mmi, alert, status, tsunami, sig, net, code, ids, sources, types, nst, dmin, rms, gap, magType, type, longitude, latitude, depth ) VALUES (:id, :mag, :place, :time, :updated, :tz, :url, :detail, :felt, :cdi, :mmi, :alert, :status, :tsunami, :sig, :net, :code, :ids, :sources, :types, :nst, :dmin, :rms, :gap, :magType, :type, :longitude, :latitude, :depth ) ON DUPLICATE KEY UPDATE id =:id, mag =:mag, place =:place, time =:time, updated =:updated, tz =:tz, url =:url, detail =:detail, felt =:felt, di =:cdi, mmi =:mmi, alert =:alert, status =:status, tsunami =:tsunami, sig =:sig, net =:net, code =:code, ids =:ids, sources =:sources, types =:types, nst =:nst, dmin =:dmin, rms =:rms, gap =:gap, magType =:magType, type =:type, longitude =:longitude, latitude =:latitude, depth =:depth ;",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 580,
+        "y": 340,
+        "wires": [
+            [
+                "0f0309ba4b498cf7"
+            ]
+        ]
+    },
+    {
+        "id": "3d6c6d810e3d1b40",
+        "type": "inject",
+        "z": "6bcce5fcbe71331f",
+        "g": "d5a3b436daef04a0",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.2",
+        "topic": "",
+        "payload": "500",
+        "payloadType": "num",
+        "x": 490,
+        "y": 700,
+        "wires": [
+            [
+                "e3bee5e999a2f2a5"
+            ]
+        ]
+    },
+    {
+        "id": "c8496a29bd29aab3",
+        "type": "change",
+        "z": "6bcce5fcbe71331f",
+        "g": "d5a3b436daef04a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.features",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.type",
+                "pt": "msg",
+                "to": "FeatureCollection",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.layer",
+                "pt": "msg",
+                "to": "earthquakes",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.command",
+                "pt": "msg",
+                "to": "{\"showlayer\":\"earthquakes\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1410,
+        "y": 760,
+        "wires": [
+            [
+                "8138442370dcb21c"
+            ]
+        ]
+    },
+    {
+        "id": "b98d294f7a4ea9eb",
+        "type": "change",
+        "z": "6bcce5fcbe71331f",
+        "g": "d5a3b436daef04a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.limit",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "select \"Feature\" as 'type', JSON_OBJECT('name', place, 'time', FROM_UNIXTIME(time/1000, '%Y-%m-%d %H.%i.%s'), 'magnitude', mag) as 'properties', JSON_OBJECT('type',\"Point\", 'coordinates',JSON_ARRAY(longitude, latitude, depth)) as 'geometry' from earthquakespast where time > :time - 604800000 order by time desc limit :limit",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.time",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1070,
+        "y": 760,
+        "wires": [
+            [
+                "c518a74d3a4414ac"
+            ]
+        ]
+    },
+    {
+        "id": "2567f032a960e0ea",
+        "type": "delay",
+        "z": "6bcce5fcbe71331f",
+        "g": "bee619e5061e0a37",
+        "name": "",
+        "pauseType": "random",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "10",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 790,
+        "y": 580,
+        "wires": [
+            [
+                "f02ce9118157ba33"
+            ]
+        ]
+    },
+    {
+        "id": "d5df6f4ce58c8226",
+        "type": "delay",
+        "z": "6bcce5fcbe71331f",
+        "g": "b252f3b759069dbf",
+        "name": "",
+        "pauseType": "random",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "10",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 1250,
+        "y": 400,
+        "wires": [
+            [
+                "0f0309ba4b498cf7"
+            ]
+        ]
+    },
+    {
+        "id": "791e09a6d55b322e",
+        "type": "function",
+        "z": "6bcce5fcbe71331f",
+        "g": "f0aec5088aad151a",
+        "name": "function 33",
+        "func": "const data = msg.payload.map(a => { return { ...a } })\nconst oldSeries = msg.series\nconst avgCount = msg.avgCount\nfor (let i = 0; i < data.length; i++) {\n    let sum = 0.0\n    for (let j = Math.max(0, i - avgCount); j <= Math.max(i, avgCount); j++) {\n        sum = sum + parseFloat(data[j].y ?? 0)\n    }\n    msg.payload[i].y = [sum / avgCount, data[i].y ?? 0]\n    msg.payload[i].sum = sum\n    msg.payload[i].start = Math.max(i, avgCount) - Math.max(0, i - avgCount)\n    msg.payload[i].end = avgCount\n}\nmsg.series = [\"Average\",oldSeries]\n// node.send(msg)\n// msg.payload = data\n// msg.series = oldSeries\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2470,
+        "y": 620,
+        "wires": [
+            [
+                "c098fee5bc5d42eb"
+            ]
+        ]
+    },
+    {
+        "id": "0ef6e6659f3292cb",
+        "type": "inject",
+        "z": "6bcce5fcbe71331f",
+        "g": "b252f3b759069dbf",
+        "name": "Inject without check",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 370,
+        "y": 380,
+        "wires": [
+            [
+                "d90e92501097906b"
+            ]
+        ]
+    },
+    {
+        "id": "f71645b77b28916a",
+        "type": "change",
+        "z": "6bcce5fcbe71331f",
+        "g": "d5a3b436daef04a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "select * from earthquakespast order by time desc limit 1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1080,
+        "y": 820,
+        "wires": [
+            [
+                "2e506cee41a8bbbf"
+            ]
+        ]
+    },
+    {
+        "id": "9e736b8f39a0a85b",
+        "type": "change",
+        "z": "6bcce5fcbe71331f",
+        "g": "d5a3b436daef04a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "temp",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.command.lat",
+                "pt": "msg",
+                "to": "temp[0].latitude",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload.command.lon",
+                "pt": "msg",
+                "to": "temp[0].longitude",
+                "tot": "msg"
+            },
+            {
+                "t": "delete",
+                "p": "temp",
+                "pt": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1410,
+        "y": 820,
+        "wires": [
+            [
+                "8138442370dcb21c"
+            ]
+        ]
+    },
+    {
+        "id": "e3bee5e999a2f2a5",
+        "type": "change",
+        "z": "6bcce5fcbe71331f",
+        "g": "d5a3b436daef04a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "limit",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 680,
+        "y": 700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0c28a366a2cf5f8b",
+        "type": "change",
+        "z": "6bcce5fcbe71331f",
+        "g": "d5a3b436daef04a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "limit",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 450,
+        "y": 820,
+        "wires": [
+            [
+                "46832ab46e4fe84e"
+            ]
+        ]
+    },
+    {
+        "id": "0712212303ebfea7",
+        "type": "switch",
+        "z": "6bcce5fcbe71331f",
+        "g": "d5a3b436daef04a0",
+        "name": "",
+        "property": "limitUser[msg._sessionip]",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 250,
+        "y": 760,
+        "wires": [
+            [
+                "976fbd5d2048440d"
+            ],
+            [
+                "0c28a366a2cf5f8b"
+            ]
+        ]
+    },
+    {
+        "id": "b0438502bc109d97",
+        "type": "switch",
+        "z": "6bcce5fcbe71331f",
+        "g": "d5a3b436daef04a0",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 870,
+        "y": 760,
+        "wires": [
+            [
+                "b98d294f7a4ea9eb",
+                "c529bede690efba0"
+            ]
+        ]
+    },
+    {
+        "id": "976fbd5d2048440d",
+        "type": "change",
+        "z": "6bcce5fcbe71331f",
+        "g": "d5a3b436daef04a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "limitUser[msg._sessionip]",
+                "tot": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 450,
+        "y": 760,
+        "wires": [
+            [
+                "46832ab46e4fe84e"
+            ]
+        ]
+    },
+    {
+        "id": "c529bede690efba0",
+        "type": "change",
+        "z": "6bcce5fcbe71331f",
+        "g": "d5a3b436daef04a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "limitUser[msg._sessionip]",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1350,
+        "y": 700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2b14eda9dc2905ac",
+        "type": "debug",
+        "z": "6bcce5fcbe71331f",
+        "g": "d5a3b436daef04a0",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1700,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "2f80222d206ce6d8",
+        "type": "change",
+        "z": "6bcce5fcbe71331f",
+        "g": "d5a3b436daef04a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{}",
+                "tot": "json"
+            },
+            {
+                "t": "set",
+                "p": "payload.command",
+                "pt": "msg",
+                "to": "{\"button\":[{\"name\":\"Set Markers\",\"icon\":\"fa-map-marker\",\"position\":\"bottomright\"},{\"name\":\"Reset\",\"icon\":\"fa-undo\",\"position\":\"bottomright\"},{\"name\":\"Last Pin\",\"icon\":\"fa-clock-o\",\"position\":\"bottomright\"}]}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 670,
+        "y": 660,
+        "wires": [
+            [
+                "8138442370dcb21c"
+            ]
+        ]
+    },
+    {
+        "id": "3f0923ebe9eaab92",
+        "type": "inject",
+        "z": "6bcce5fcbe71331f",
+        "g": "f0aec5088aad151a",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "payload.time",
+                "v": "",
+                "vt": "date"
+            },
+            {
+                "p": "series",
+                "v": "Magnitude",
+                "vt": "str"
+            },
+            {
+                "p": "avgCount",
+                "v": "500",
+                "vt": "num"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.3",
+        "topic": "select time as 'x', mag as 'y' from earthquakesfuture where time > :time - 754800000 order by x asc",
+        "x": 2150,
+        "y": 700,
+        "wires": [
+            [
+                "99508586ad13bb75"
+            ]
+        ]
+    },
+    {
+        "id": "90c6c41987bb3326",
+        "type": "inject",
+        "z": "6bcce5fcbe71331f",
+        "g": "f0aec5088aad151a",
+        "name": "Reset Chart",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[]",
+        "payloadType": "json",
+        "x": 2470,
+        "y": 780,
+        "wires": [
+            [
+                "03611e1e8dea7626"
+            ]
+        ]
+    },
+    {
+        "id": "59838411061123f8",
+        "type": "function",
+        "z": "6bcce5fcbe71331f",
+        "g": "f0aec5088aad151a",
+        "name": "function 34",
+        "func": "const data = msg.payload.map(a => { return { ...a } })\nconst oldSeries = msg.series\nconst avgCount = msg.avgCount\nfor (let i = 0; i < data.length; i++) {\n    let sum = 0.0\n    for (let j = Math.max(0, i - avgCount); j <= Math.max(i, avgCount); j++) {\n        sum = sum + parseFloat(data[j].y ?? 0)\n    }\n    msg.payload[i].y = sum / avgCount\n    msg.payload[i].sum = sum\n    msg.payload[i].start = Math.max(i, avgCount) - Math.max(0, i - avgCount)\n    msg.payload[i].end = avgCount\n}\nmsg.series = \"Average\"\nnode.send(msg)\nmsg.payload = data\nmsg.series = oldSeries\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2470,
+        "y": 740,
+        "wires": [
+            [
+                "03611e1e8dea7626"
+            ]
+        ]
+    },
+    {
+        "id": "54e5213695f38dc6",
+        "type": "inject",
+        "z": "6bcce5fcbe71331f",
+        "g": "984c485202e0c9c0",
+        "name": "drop earthquakesfuture",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "DROP TABLE earthquakesfuture;",
+        "payload": "",
+        "payloadType": "str",
+        "x": 160,
+        "y": 240,
+        "wires": [
+            [
+                "181bf75b0a1c7ad3"
+            ]
+        ]
+    },
+    {
+        "id": "181bf75b0a1c7ad3",
+        "type": "mysql",
+        "z": "6bcce5fcbe71331f",
+        "g": "984c485202e0c9c0",
+        "mydb": "2002ecfeada28fa2",
+        "name": "",
+        "x": 380,
+        "y": 160,
+        "wires": [
+            [
+                "1ff8f5c0cf49bb74"
+            ]
+        ]
+    },
+    {
+        "id": "9c9c71148822be9b",
+        "type": "mysql",
+        "z": "6bcce5fcbe71331f",
+        "g": "0baaa4799385b3b1",
+        "mydb": "2002ecfeada28fa2",
+        "name": "",
+        "x": 1840,
+        "y": 560,
+        "wires": [
+            [
+                "f39f2012153165f4"
+            ]
+        ]
+    },
+    {
+        "id": "1845789334fadf3a",
+        "type": "mysql",
+        "z": "6bcce5fcbe71331f",
+        "g": "f0aec5088aad151a",
+        "mydb": "2002ecfeada28fa2",
+        "name": "",
+        "x": 2300,
+        "y": 620,
+        "wires": [
+            [
+                "791e09a6d55b322e"
+            ]
+        ]
+    },
+    {
+        "id": "dab123d6626265ce",
+        "type": "mysql",
+        "z": "6bcce5fcbe71331f",
+        "g": "b252f3b759069dbf",
+        "mydb": "2002ecfeada28fa2",
+        "name": "",
+        "x": 260,
+        "y": 340,
+        "wires": [
+            [
+                "e03366d6de1fcd90"
+            ]
+        ]
+    },
+    {
+        "id": "c518a74d3a4414ac",
+        "type": "mysql",
+        "z": "6bcce5fcbe71331f",
+        "g": "d5a3b436daef04a0",
+        "mydb": "2002ecfeada28fa2",
+        "name": "",
+        "x": 1240,
+        "y": 760,
+        "wires": [
+            [
+                "c8496a29bd29aab3"
+            ]
+        ]
+    },
+    {
+        "id": "2e506cee41a8bbbf",
+        "type": "mysql",
+        "z": "6bcce5fcbe71331f",
+        "g": "d5a3b436daef04a0",
+        "mydb": "2002ecfeada28fa2",
+        "name": "",
+        "x": 1240,
+        "y": 820,
+        "wires": [
+            [
+                "9e736b8f39a0a85b"
+            ]
+        ]
+    },
+    {
+        "id": "99508586ad13bb75",
+        "type": "mysql",
+        "z": "6bcce5fcbe71331f",
+        "g": "f0aec5088aad151a",
+        "mydb": "2002ecfeada28fa2",
+        "name": "",
+        "x": 2300,
+        "y": 740,
+        "wires": [
+            [
+                "59838411061123f8"
+            ]
+        ]
+    },
+    {
+        "id": "eb0c82cee64f07de",
+        "type": "worldmap",
+        "z": "6bcce5fcbe71331f",
+        "g": "d5a3b436daef04a0",
+        "name": "",
+        "lat": "",
+        "lon": "",
+        "zoom": "",
+        "layer": "OSMC",
+        "cluster": "",
+        "maxage": "",
+        "usermenu": "show",
+        "layers": "show",
+        "panit": "true",
+        "panlock": "false",
+        "zoomlock": "false",
+        "hiderightclick": "false",
+        "coords": "deg",
+        "showgrid": "true",
+        "showruler": "true",
+        "allowFileDrop": "false",
+        "path": "/worldmap",
+        "overlist": "DR,CO,RA,DN,BU,RW,SN,TL,HM",
+        "maplist": "OSMG,OSMC,OSMH,EsriC,EsriS,EsriT,EsriO,EsriDG,NatGeo,UKOS,OpTop,HB,AN,ST,SW",
+        "mapname": "",
+        "mapurl": "",
+        "mapopt": "",
+        "mapwms": false,
+        "x": 1720,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "49484268a35eda2e",
+        "type": "worldmap in",
+        "z": "6bcce5fcbe71331f",
+        "g": "d5a3b436daef04a0",
+        "name": "",
+        "path": "/worldmap",
+        "events": "connect",
+        "x": 100,
+        "y": 760,
+        "wires": [
+            [
+                "0712212303ebfea7",
+                "2f80222d206ce6d8"
+            ]
+        ]
+    },
+    {
+        "id": "46832ab46e4fe84e",
+        "type": "ui-number-input",
+        "z": "6bcce5fcbe71331f",
+        "g": "d5a3b436daef04a0",
+        "group": "16d4a1a2cd890e9a",
+        "name": "",
+        "label": "Number of Pins",
+        "order": 2,
+        "width": 1,
+        "height": 0,
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "1000000",
+        "step": 1,
+        "tooltip": "",
+        "passthru": true,
+        "sendOnBlur": false,
+        "sendOnEnter": false,
+        "className": "",
+        "clearable": true,
+        "icon": "",
+        "iconPosition": "left",
+        "iconInnerPosition": "inside",
+        "spinner": "stacked",
+        "x": 680,
+        "y": 760,
+        "wires": [
+            [
+                "b0438502bc109d97",
+                "0ac4058f5b6f0dc7",
+                "9786ab139d44e129"
+            ]
+        ]
+    },
+    {
+        "id": "0ac4058f5b6f0dc7",
+        "type": "ui-button",
+        "z": "6bcce5fcbe71331f",
+        "g": "d5a3b436daef04a0",
+        "group": "16d4a1a2cd890e9a",
+        "name": "Reset",
+        "label": "Reset",
+        "order": 3,
+        "width": 1,
+        "height": 0,
+        "emulateClick": true,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "{\"command\":{\"clearlayer\":\"earthquakes\" }}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 870,
+        "y": 700,
+        "wires": [
+            [
+                "8138442370dcb21c"
+            ]
+        ]
+    },
+    {
+        "id": "9786ab139d44e129",
+        "type": "ui-button",
+        "z": "6bcce5fcbe71331f",
+        "g": "d5a3b436daef04a0",
+        "group": "16d4a1a2cd890e9a",
+        "name": "Last Pin",
+        "label": "Last Pin",
+        "order": 4,
+        "width": 1,
+        "height": 0,
+        "emulateClick": true,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "iconPosition": "left",
+        "payload": "1",
+        "payloadType": "num",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 880,
+        "y": 820,
+        "wires": [
+            [
+                "f71645b77b28916a",
+                "b98d294f7a4ea9eb"
+            ]
+        ]
+    },
+    {
+        "id": "c098fee5bc5d42eb",
+        "type": "ui-chart",
+        "z": "6bcce5fcbe71331f",
+        "g": "f0aec5088aad151a",
+        "group": "f96033b41d6aa7d5",
+        "name": "",
+        "label": "chart",
+        "order": 1,
+        "chartType": "line",
+        "category": "series",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "x",
+        "xAxisPropertyType": "property",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "y",
+        "yAxisPropertyType": "property",
+        "ymin": "-1",
+        "ymax": "7",
+        "bins": "",
+        "action": "replace",
+        "stackSeries": true,
+        "pointShape": "false",
+        "pointRadius": "1",
+        "showLegend": true,
+        "removeOlder": "1",
+        "removeOlderUnit": "604800",
+        "removeOlderPoints": "10000",
+        "colors": [
+            "#ff0000",
+            "#0095ff",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": 6,
+        "height": 14,
+        "className": "",
+        "interpolation": "linear",
+        "x": 2650,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "03611e1e8dea7626",
+        "type": "ui-chart",
+        "z": "6bcce5fcbe71331f",
+        "g": "f0aec5088aad151a",
+        "group": "f96033b41d6aa7d5",
+        "name": "",
+        "label": "chart",
+        "order": 2,
+        "chartType": "line",
+        "category": "series",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "x",
+        "xAxisPropertyType": "property",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "y",
+        "yAxisPropertyType": "property",
+        "ymin": "-3",
+        "ymax": "4",
+        "bins": "",
+        "action": "append",
+        "stackSeries": true,
+        "pointShape": "false",
+        "pointRadius": "1",
+        "showLegend": true,
+        "removeOlder": "100000",
+        "removeOlderUnit": "604800",
+        "removeOlderPoints": "10000",
+        "colors": [
+            "#ff0000",
+            "#0095ff",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": 6,
+        "height": 14,
+        "className": "",
+        "interpolation": "linear",
+        "x": 2650,
+        "y": 760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9d0422c81103f89f",
+        "type": "ui-iframe",
+        "z": "6bcce5fcbe71331f",
+        "g": "d5a3b436daef04a0",
+        "name": "",
+        "group": "16d4a1a2cd890e9a",
+        "order": 1,
+        "src": "/worldmap",
+        "width": 6,
+        "height": 13,
+        "x": 1710,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "5ae6e4e5aa537647",
+        "type": "debug",
+        "z": "6bcce5fcbe71331f",
+        "g": "0baaa4799385b3b1",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1840,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "34dbc11c5f33b15d",
+        "type": "inject",
+        "z": "6bcce5fcbe71331f",
+        "g": "984c485202e0c9c0",
+        "name": "drop earthquakesfuture",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "DROP TABLE earthquakespast;",
+        "payload": "",
+        "payloadType": "str",
+        "x": 160,
+        "y": 160,
+        "wires": [
+            [
+                "181bf75b0a1c7ad3"
+            ]
+        ]
+    },
+    {
+        "id": "79e61beb9c78dbce",
+        "type": "worldmap in",
+        "z": "6bcce5fcbe71331f",
+        "g": "d5a3b436daef04a0",
+        "name": "",
+        "path": "/worldmap",
+        "events": "disconnect",
+        "x": 100,
+        "y": 860,
+        "wires": [
+            [
+                "e61a3464e47ef417"
+            ]
+        ]
+    },
+    {
+        "id": "e61a3464e47ef417",
+        "type": "change",
+        "z": "6bcce5fcbe71331f",
+        "g": "d5a3b436daef04a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "delete",
+                "p": "limitUser[msg._sessionip]",
+                "pt": "flow"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 860,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fa5a092cb3872d9c",
+        "type": "worldmap in",
+        "z": "6bcce5fcbe71331f",
+        "g": "d5a3b436daef04a0",
+        "name": "",
+        "path": "/worldmap",
+        "events": "other",
+        "x": 100,
+        "y": 680,
+        "wires": [
+            [
+                "c87495824b7b2b21"
+            ]
+        ]
+    },
+    {
+        "id": "c87495824b7b2b21",
+        "type": "switch",
+        "z": "6bcce5fcbe71331f",
+        "g": "d5a3b436daef04a0",
+        "name": "",
+        "property": "payload.name",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Set Markers",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Reset",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Last Pin",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 250,
+        "y": 680,
+        "wires": [
+            [
+                "0712212303ebfea7"
+            ],
+            [
+                "0ac4058f5b6f0dc7"
+            ],
+            [
+                "9786ab139d44e129"
+            ]
+        ]
+    },
+    {
+        "id": "4bbac42b6dce5e0c",
+        "type": "inject",
+        "z": "6bcce5fcbe71331f",
+        "g": "d5a3b436daef04a0",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "command",
+                "v": "{\"showlayer\":\"earthquakes\"}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"FeatureCollection\",\"name\":\"earthquakes\",\"layer\":\"earthquakes\",\"features\":[{\"type\":\"Feature\",\"geometry\":{\"type\":\"Point\",\"coordinates\":[-122.33,47.6]},\"properties\":{\"name\":\"Seattle\",\"magnitude\":4.5}}]}",
+        "payloadType": "json",
+        "x": 1430,
+        "y": 880,
+        "wires": [
+            [
+                "8138442370dcb21c"
+            ]
+        ]
+    },
+    {
+        "id": "f39f2012153165f4",
+        "type": "change",
+        "z": "6bcce5fcbe71331f",
+        "g": "f0aec5088aad151a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "select time as 'x', mag as 'y' from earthquakespast where time > :time - 754800000 order by x asc",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload.time",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            },
+            {
+                "t": "set",
+                "p": "series",
+                "pt": "msg",
+                "to": "Magnitude",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "avgCount",
+                "pt": "msg",
+                "to": "500",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2110,
+        "y": 620,
+        "wires": [
+            [
+                "1845789334fadf3a"
+            ]
+        ]
+    },
+    {
+        "id": "bea3b28d4e9bf08b",
+        "type": "change",
+        "z": "6bcce5fcbe71331f",
+        "g": "f0aec5088aad151a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "[]",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2110,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    }
+]

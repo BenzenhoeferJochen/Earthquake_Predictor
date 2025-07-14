@@ -665,3 +665,6 @@ __marimo__/
 
 
 archive/
+Node-Red-Backup/*
+Node-Red/settings.js
+Node-Red/flows.json
