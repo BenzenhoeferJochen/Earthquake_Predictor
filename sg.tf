@@ -16,10 +16,10 @@ resource "aws_vpc_security_group_ingress_rule" "SSH_Rule" {
 
 # Allow SSH ingress
 resource "aws_vpc_security_group_ingress_rule" "SSH_Rule2" {
-  security_group_id = aws_security_group.SSH_Security_Group.id
-  ip_protocol       = "tcp"
-  from_port         = 22
-  to_port           = 22
+  security_group_id            = aws_security_group.SSH_Security_Group.id
+  ip_protocol                  = "tcp"
+  from_port                    = 22
+  to_port                      = 22
   referenced_security_group_id = aws_security_group.SSH_Security_Group.id
 }
 
@@ -83,4 +83,19 @@ resource "aws_vpc_security_group_ingress_rule" "Back_End_Rule" {
   from_port         = 8000
   to_port           = 8000
   cidr_ipv4         = "0.0.0.0/0"
+}
+
+# Security group for the EFS
+resource "aws_security_group" "EFS_Security_Group" {
+  name        = "EFS_Security_Group"
+  description = "Security group for EFS"
+  vpc_id      = aws_vpc.Node_Red_VPC.id
+}
+
+resource "aws_vpc_security_group_ingress_rule" "EFS_Rule" {
+  security_group_id            = aws_security_group.EFS_Security_Group.id
+  ip_protocol                  = "tcp"
+  from_port                    = 2049
+  to_port                      = 2049
+  referenced_security_group_id = aws_security_group.Node_Red_Security_Group.id
 }
