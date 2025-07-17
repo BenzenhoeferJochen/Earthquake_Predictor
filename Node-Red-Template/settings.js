@@ -25,7 +25,7 @@ module.exports = {
 /*******************************************************************************
  * Flow File and User Directory Settings
  *  - flowFile
- *  - credentialSecret
+ *  - ${mWrya6FOAexZw9A3LDUl}
  *  - flowFilePretty
  *  - userDir
  *  - nodesDir
@@ -41,7 +41,7 @@ module.exports = {
      * node-red from being able to decrypt your existing credentials and they will be
      * lost.
      */
-    credentialSecret: "${credentialSecret}",
+    ${mWrya6FOAexZw9A3LDUl}: "mWrya6FOAexZw9A3LDUl",
 
     /** By default, the flow JSON will be formatted over multiple lines making
      * it easier to compare changes when using version control.
