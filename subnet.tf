@@ -51,3 +51,8 @@ resource "aws_route_table_association" "Private_Route_Table_Association2" {
   route_table_id = aws_route_table.Private_Route_Table.id
   subnet_id      = aws_subnet.Private_Subnet2.id
 }
+
+resource "aws_db_subnet_group" "node_red_db_subnet_group" {
+  name       = "node_red_db_subnet_group"
+  subnet_ids = [aws_subnet.Private_Subnet1.id, aws_subnet.Private_Subnet2.id]
+}

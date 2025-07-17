@@ -1,0 +1,11 @@
+[Unit]
+Description=Service to start the Backend server
+
+[Service]
+WorkingDirectory=/home/ec2-user/ML
+ExecStart=/home/ec2-user/ML/.venv/bin/uvicorn earthquake_ml_api:app --host 0.0.0.0 --port 8000
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
