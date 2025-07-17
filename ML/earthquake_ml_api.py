@@ -21,17 +21,17 @@ async def predict_earthquake(number_of_earthquakes: int):
     await loop.run_in_executor(None, partial(prediction, number_of_earthquakes))
 
 
-@app.get("/learn")
-async def learn():
-    await loop.run_in_executor(None, learn_helper)
+@app.get("/learn/{number_of_earthquakes}")
+async def learn(number_of_earthquakes: int = 100):
+    await loop.run_in_executor(None, partial(learn_helper, number_of_earthquakes))
 
 
 def prediction(number_of_earthquakes: int):
     global model
     if model is None:
-        learn_helper()
+        model = learn_helper()
     mydb = database.connect_to_mysql()
-    data = np.array(database.fetch_earthquake_data(mydb.cursor()))
+    data = np.array(database.fetch_earthquake_data(mydb.cursor(), -1))
 
     for i in range(len(data)):
         for j in range(len(data[i])):
@@ -44,7 +44,6 @@ def prediction(number_of_earthquakes: int):
     )
     future_predictions = model.predict(predicted_times.reshape(-1, 1))
 
-    print(future_predictions)
     database.write_predictions_only_mag(
         mydb.cursor(),
         [
@@ -57,10 +56,12 @@ def prediction(number_of_earthquakes: int):
     return True
 
 
-def learn_helper():
+def learn_helper(number_of_earthquakes: int = 100):
     global model
     mydb = database.connect_to_mysql()
-    data = np.array(database.fetch_earthquake_data(mydb.cursor()))
+    data = np.array(
+        database.fetch_earthquake_data(mydb.cursor(), number_of_earthquakes)
+    )
 
     for i in range(len(data)):
         for j in range(len(data[i])):
