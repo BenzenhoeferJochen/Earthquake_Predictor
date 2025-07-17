@@ -18,6 +18,7 @@ echo '${database}' > /home/ec2-user/ML/database.py
 echo '${earthquakeMLAPI}' > /home/ec2-user/ML/earthquake_ml_api.py
 echo '${earthquakeMLRequirements}' > /home/ec2-user/ML/requirements.txt
 echo '${earthquakeTimes}' > /home/ec2-user/ML/earthquake_times.py
+echo '${predictionService}' > /etc/systemd/system/prediction.service
 
 touch /home/ec2-user/ML/__init__.py
 
@@ -25,4 +26,17 @@ cd /home/ec2-user/ML
 python3 -m venv .venv/
 source .venv/bin/activate
 pip install -r requirements.txt
-uvicorn earthquake_ml_api:app --host 0.0.0.0 --port 8000
+deactivate
+
+# Add 20GB swap
+fallocate -l 10G /swapfile
+chmod 600 /swapfile
+mkswap /swapfile
+swapon /swapfile
+# Make it persistent
+echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
+
+
+
+systemctl start prediction.service
+systemctl enable prediction.service
