@@ -2,6 +2,8 @@
 yum update -y
 yum install -y nodejs22
 
+npm install -g --unsafe-perm node-red
+
 useradd node-red
 
 echo "${noderedService}" > /etc/systemd/system/nodered.service
@@ -13,22 +15,15 @@ mkdir -p /efs/nodeRed
 
 mount -t nfs -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport ${efs_dns}:/ /efs/nodeRed
 
+echo "${efs_dns}:/ /efs/nodeRed nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport,_netdev 0 0" >> /etc/fstab
+
+
 mkdir -p /efs/nodeRed/.node-red
 
-if [ -f /efs/nodeRed/.node-red/Node-Red/flows.json ]; then
-    chown -R ec2-user:ec2-user /efs/nodeRed/.node-red/Node-Red/flows.json
-else
-    chown -R ec2-user:ec2-user /efs/nodeRed/
-fi
-if [ -f /efs/nodeRed/.node-red/Node-Red/settings.js ]; then
-    chown -R ec2-user:ec2-user /efs/nodeRed/.node-red/Node-Red/settings.js
-else
-    chown -R ec2-user:ec2-user /efs/nodeRed/
-fi
+chown -R ec2-user:ec2-user /efs/nodeRed/
 
-chown ec2-user:ec2-user /efs/nodeRed/ /efs/nodeRed/.node-red /efs/nodeRed/.node-red/Node-Red
+# chown ec2-user:ec2-user /efs/nodeRed/ /efs/nodeRed/.node-red /efs/nodeRed/.node-red/Node-Red
 
-npm install -g --unsafe-perm node-red
 
 touch /etc/systemd/system/refreshLab.service
 touch /etc/systemd/system/refreshLab.timer
