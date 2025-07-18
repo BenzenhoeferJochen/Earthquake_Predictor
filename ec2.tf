@@ -3,18 +3,18 @@ data "aws_key_pair" "keypair" {
 }
 
 # Create a EC2 Instance with Node Red
-resource "aws_instance" "Node_Red_Server" {
+resource "aws_instance" "Bastion_Host" {
   ami           = data.aws_ssm_parameter.AL2023AMISSM.value
-  instance_type = "t3.small"
+  instance_type = "t3.nano"
   credit_specification {
     cpu_credits = "standard"
   }
   vpc_security_group_ids = [
     aws_security_group.SSH_Security_Group.id,
-    aws_security_group.Node_Red_Security_Group.id,
+    # aws_security_group.Node_Red_Security_Group.id,
     aws_security_group.Out_Security_Group.id
   ]
-  subnet_id                   = aws_subnet.Public_Subnet1.id
+  subnet_id                   = aws_subnet.Public_Subnet2.id
   associate_public_ip_address = true
   key_name                    = data.aws_key_pair.keypair.key_name
   user_data = templatefile(
@@ -31,7 +31,8 @@ resource "aws_instance" "Node_Red_Server" {
       refreshLabScript = templatefile("refreshLab.sh", {
         cookies = data.external.getCookies.result.result
         # cookies = ""
-      })
+      }),
+      pemFile = file("labsuser.pem"),
 
     }
   )
@@ -121,53 +122,53 @@ resource "aws_instance" "Node_Red_Server" {
 }
 
 
-# Create a EC2 Instance with Python ML API
-resource "aws_instance" "Python_ML_API_Server" {
-  ami           = data.aws_ssm_parameter.AL2023AMISSM.value
-  instance_type = "t3.medium"
-  credit_specification {
-    cpu_credits = "standard"
-  }
-  vpc_security_group_ids = [
-    aws_security_group.SSH_Security_Group.id,
-    aws_security_group.Back_End_Security_Group.id,
-    aws_security_group.Out_Security_Group.id
-  ]
-  subnet_id                   = aws_subnet.Public_Subnet1.id
-  associate_public_ip_address = true
-  key_name                    = data.aws_key_pair.keypair.key_name
-  root_block_device {
-    volume_size           = 20
-    volume_type           = "gp3"
-    delete_on_termination = true
-  }
-  user_data = templatefile(
-    "user_data_Backend.sh", {
-      db_user     = var.DB_USER,
-      db_database = var.DB_DATABASE,
-      db_address  = aws_db_instance.Node_Red_DB.address,
-      db_port     = aws_db_instance.Node_Red_DB.port,
-      db_password = var.DB_PASSWORD,
-      database = templatefile("ML/database.py", {
-        db_address  = aws_db_instance.Node_Red_DB.address,
-        db_port     = aws_db_instance.Node_Red_DB.port,
-        db_password = var.DB_PASSWORD
-        db_user     = var.DB_USER,
-        db_database = var.DB_DATABASE,
-      }),
-      predictionService        = file("ML/prediction.service"),
-      earthquakeMLAPI          = file("ML/earthquake_ml_api.py"),
-      earthquakeMLRequirements = file("ML/requirements.txt"),
-      earthquakeTimes          = file("ML/earthquake_times.py")
-    }
-  )
+# # Create a EC2 Instance with Python ML API
+# resource "aws_instance" "Python_ML_API_Server" {
+#   ami           = data.aws_ssm_parameter.AL2023AMISSM.value
+#   instance_type = "t3.medium"
+#   credit_specification {
+#     cpu_credits = "standard"
+#   }
+#   vpc_security_group_ids = [
+#     aws_security_group.SSH_Security_Group.id,
+#     aws_security_group.Back_End_Security_Group.id,
+#     aws_security_group.Out_Security_Group.id
+#   ]
+#   subnet_id                   = aws_subnet.Public_Subnet1.id
+#   associate_public_ip_address = true
+#   key_name                    = data.aws_key_pair.keypair.key_name
+#   root_block_device {
+#     volume_size           = 20
+#     volume_type           = "gp3"
+#     delete_on_termination = true
+#   }
+#   user_data = templatefile(
+#     "user_data_Backend.sh", {
+#       db_user     = var.DB_USER,
+#       db_database = var.DB_DATABASE,
+#       db_address  = aws_db_instance.Node_Red_DB.address,
+#       db_port     = aws_db_instance.Node_Red_DB.port,
+#       db_password = var.DB_PASSWORD,
+#       database = templatefile("ML/database.py", {
+#         db_address  = aws_db_instance.Node_Red_DB.address,
+#         db_port     = aws_db_instance.Node_Red_DB.port,
+#         db_password = var.DB_PASSWORD
+#         db_user     = var.DB_USER,
+#         db_database = var.DB_DATABASE,
+#       }),
+#       predictionService        = file("ML/prediction.service"),
+#       earthquakeMLAPI          = file("ML/earthquake_ml_api.py"),
+#       earthquakeMLRequirements = file("ML/requirements.txt"),
+#       earthquakeTimes          = file("ML/earthquake_times.py")
+#     }
+#   )
+# }
+
+output "Bastion_Server_Public_IP" {
+  value = aws_instance.Bastion_Host.public_ip
 }
 
-output "Node_Red_Server_Public_IP" {
-  value = aws_instance.Node_Red_Server.public_ip
-}
 
-
-output "Python_ML_API_Server_Public_IP" {
-  value = aws_instance.Python_ML_API_Server.public_ip
-}
+# output "Python_ML_API_Server_Public_IP" {
+#   value = aws_instance.Python_ML_API_Server.public_ip
+# }
