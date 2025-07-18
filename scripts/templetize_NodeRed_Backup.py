@@ -34,7 +34,7 @@ with open(vars_json_path, "r") as f:
 
 def templetize(content: str, mapping: dict) -> str:
     for value, var_name in mapping.items():
-        content = content.replace(value, f"${{{var_name}}}")
+        content = content.replace(str(var_name), f"${{{value}}}")
     return content
 
 
