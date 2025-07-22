@@ -12,14 +12,11 @@ resource "aws_launch_template" "node_red_launch_template" {
   key_name = data.aws_key_pair.keypair.key_name
 
   # Network configuration
-  network_interfaces {
-    subnet_id = aws_subnet.Public_Subnet1.id
-    security_groups = [
-      aws_security_group.SSH_Security_Group2.id,
-      aws_security_group.Node_Red_Security_Group.id,
-      aws_security_group.Out_Security_Group.id
-    ]
-  }
+  vpc_security_group_ids = [
+    aws_security_group.SSH_Security_Group2.id,
+    aws_security_group.Node_Red_Security_Group.id,
+    aws_security_group.Out_Security_Group.id
+  ]
 
   # User data script
   user_data = base64encode(templatefile(
@@ -42,6 +39,12 @@ resource "aws_launch_template" "node_red_launch_template" {
 # AWS Auto Scaling Group
 resource "aws_autoscaling_group" "node_red_asg" {
   name = "node-red-autoscaling-group"
+  depends_on = [
+    aws_instance.Bastion_Host,
+    aws_efs_mount_target.Node_Red_EFS_Mount_Target,
+    aws_efs_mount_target.Node_Red_EFS_Mount_Target2,
+    aws_vpc_security_group_ingress_rule.EFS_Rule
+  ]
 
   # Launch template
   launch_template {
@@ -102,14 +105,12 @@ resource "aws_launch_template" "backend_launch_template" {
   key_name = data.aws_key_pair.keypair.key_name
 
   # Network configuration
-  network_interfaces {
-    subnet_id = aws_subnet.Public_Subnet1.id
-    security_groups = [
-      aws_security_group.SSH_Security_Group2.id,
-      aws_security_group.Back_End_Security_Group.id,
-      aws_security_group.Out_Security_Group.id
-    ]
-  }
+  vpc_security_group_ids = [
+    aws_security_group.SSH_Security_Group2.id,
+    aws_security_group.Back_End_Security_Group.id,
+    aws_security_group.Out_Security_Group.id
+  ]
+
 
   # User data script
   user_data = base64encode(templatefile(
