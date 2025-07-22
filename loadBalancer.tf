@@ -14,16 +14,16 @@ resource "aws_lb" "app_lb" {
 
 # Create ALB Target Group
 resource "aws_lb_target_group" "app_tg" {
-  name   = "app-tg"
-  protocol = "TCP"
-  port   = 1880
-  vpc_id = aws_vpc.Node_Red_VPC.id
+  name     = "app-tg"
+  protocol = "HTTP"
+  port     = 1880
+  vpc_id   = aws_vpc.Node_Red_VPC.id
 
   health_check {
     enabled             = true
     healthy_threshold   = 2
     interval            = 30
-    matcher             = "200,302"
+    matcher             = "200,302,304"
     path                = "/"
     port                = "traffic-port"
     timeout             = 5
@@ -35,6 +35,7 @@ resource "aws_lb_target_group" "app_tg" {
 resource "aws_lb_listener" "front_end" {
   load_balancer_arn = aws_lb.app_lb.arn
   port              = "1880"
+  protocol          = "HTTP"
 
   default_action {
     type             = "forward"
@@ -64,16 +65,16 @@ resource "aws_lb" "backend_app_lb" {
 
 # Create ALB Target Group
 resource "aws_lb_target_group" "backend_tg" {
-  name   = "backend-tg"
-  protocol = "TCP"
-  port   = 3000
-  vpc_id = aws_vpc.Node_Red_VPC.id
+  name     = "backend-tg"
+  protocol = "HTTP"
+  port     = 8000
+  vpc_id   = aws_vpc.Node_Red_VPC.id
 
   health_check {
     enabled             = true
     healthy_threshold   = 2
     interval            = 30
-    matcher             = "200,302"
+    matcher             = "200,302,304"
     path                = "/"
     port                = "traffic-port"
     timeout             = 5
@@ -84,7 +85,8 @@ resource "aws_lb_target_group" "backend_tg" {
 # Create ALB Listener
 resource "aws_lb_listener" "backend_listener" {
   load_balancer_arn = aws_lb.backend_app_lb.arn
-  port              = "3000"
+  protocol          = "HTTP"
+  port              = "8000"
 
   default_action {
     type             = "forward"
