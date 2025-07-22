@@ -9,8 +9,6 @@ from fastapi import FastAPI
 from sklearn.discriminant_analysis import StandardScaler
 from sklearn.gaussian_process import GaussianProcessRegressor
 from sklearn.gaussian_process.kernels import RBF, ExpSineSquared, WhiteKernel
-from sklearn.kernel_approximation import Nystroem
-from sklearn.linear_model import Ridge
 from sklearn.pipeline import make_pipeline
 
 app = FastAPI()
@@ -78,8 +76,7 @@ def learn_helper(number_of_earthquakes: int = 100):
     )
     model = make_pipeline(
         StandardScaler(),
-        Nystroem(kernel=kernel, n_components=100, random_state=42, gamma=0.5),
-        Ridge(alpha=1e-12, random_state=42),
+        GaussianProcessRegressor(alpha=1e-12, kernel=kernel, random_state=42),
         memory="/tmp/cache",
     )
     model.fit(X, y)
