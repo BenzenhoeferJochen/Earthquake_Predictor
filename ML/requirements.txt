@@ -1,6 +1,9 @@
 uvicorn
 fastapi
-numpy
+tensorflow 
+tensorflow-probability
+tf-keras
 scikit-learn
 seaborn
 mysql-connector-python
+numpy
