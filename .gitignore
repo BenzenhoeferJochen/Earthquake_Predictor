@@ -669,3 +669,6 @@ Node-Red-Backup/*
 Node-Red/settings.js
 Node-Red/flows.json
 tmp/*
+ML/earthquake_ml_api.py
+
+Node-Red-Backup-Template2/*
