@@ -93,6 +93,14 @@ resource "aws_vpc_security_group_ingress_rule" "Back_End_Rule" {
   referenced_security_group_id = aws_security_group.Node_Red_Security_Group.id
 }
 
+resource "aws_vpc_security_group_ingress_rule" "Back_End_Rule2" {
+  security_group_id            = aws_security_group.Back_End_Security_Group.id
+  ip_protocol                  = "tcp"
+  from_port                    = 8000
+  to_port                      = 8000
+  referenced_security_group_id = aws_security_group.Back_End_Security_Group.id
+}
+
 # Security group for the EFS
 resource "aws_security_group" "EFS_Security_Group" {
   name        = "EFS_Security_Group"
