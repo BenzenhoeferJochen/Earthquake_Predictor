@@ -53,7 +53,7 @@ output "Frontend_Load_Balancer_DNS" {
 # Create Application Load Balancer
 resource "aws_lb" "backend_app_lb" {
   name               = "backend-lb"
-  internal           = false
+  internal           = true
   load_balancer_type = "application"
   security_groups    = [aws_security_group.Back_End_Security_Group.id, aws_security_group.Out_Security_Group.id]
   subnets            = [aws_subnet.Private_Subnet1.id, aws_subnet.Private_Subnet2.id]
