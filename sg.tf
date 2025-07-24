@@ -14,9 +14,17 @@ resource "aws_vpc_security_group_ingress_rule" "SSH_Rule" {
   cidr_ipv4         = "${data.http.myip.response_body}/32"
 }
 
-# Allow SSH ingress
+# Create a SSH Security Group
+resource "aws_security_group" "SSH_Security_Group2" {
+  description = "Allows SSH Access for Bastion Host"
+  name        = "SSH_Security_Group2"
+  vpc_id      = aws_vpc.Node_Red_VPC.id
+}
+
+
+# Allow SSH ingress from Bastion Host
 resource "aws_vpc_security_group_ingress_rule" "SSH_Rule2" {
-  security_group_id            = aws_security_group.SSH_Security_Group.id
+  security_group_id            = aws_security_group.SSH_Security_Group2.id
   ip_protocol                  = "tcp"
   from_port                    = 22
   to_port                      = 22
@@ -52,7 +60,7 @@ resource "aws_vpc_security_group_ingress_rule" "DB_Rule" {
   ip_protocol                  = "tcp"
   from_port                    = 3306
   to_port                      = 3306
-  referenced_security_group_id = aws_security_group.SSH_Security_Group.id
+  referenced_security_group_id = aws_security_group.SSH_Security_Group2.id
 }
 
 # Create a Outgress Security Group
@@ -78,11 +86,19 @@ resource "aws_security_group" "Back_End_Security_Group" {
 
 # Allow Back End ingress
 resource "aws_vpc_security_group_ingress_rule" "Back_End_Rule" {
-  security_group_id = aws_security_group.Back_End_Security_Group.id
-  ip_protocol       = "tcp"
-  from_port         = 8000
-  to_port           = 8000
-  cidr_ipv4         = "0.0.0.0/0"
+  security_group_id            = aws_security_group.Back_End_Security_Group.id
+  ip_protocol                  = "tcp"
+  from_port                    = 8000
+  to_port                      = 8000
+  referenced_security_group_id = aws_security_group.Node_Red_Security_Group.id
+}
+
+resource "aws_vpc_security_group_ingress_rule" "Back_End_Rule2" {
+  security_group_id            = aws_security_group.Back_End_Security_Group.id
+  ip_protocol                  = "tcp"
+  from_port                    = 8000
+  to_port                      = 8000
+  referenced_security_group_id = aws_security_group.Back_End_Security_Group.id
 }
 
 # Security group for the EFS
@@ -98,4 +114,12 @@ resource "aws_vpc_security_group_ingress_rule" "EFS_Rule" {
   from_port                    = 2049
   to_port                      = 2049
   referenced_security_group_id = aws_security_group.Node_Red_Security_Group.id
+}
+
+resource "aws_vpc_security_group_ingress_rule" "EFS_Rule2" {
+  security_group_id            = aws_security_group.EFS_Security_Group.id
+  ip_protocol                  = "tcp"
+  from_port                    = 2049
+  to_port                      = 2049
+  referenced_security_group_id = aws_security_group.SSH_Security_Group.id
 }

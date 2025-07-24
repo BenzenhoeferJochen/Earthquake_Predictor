@@ -1,16 +1,18 @@
 
 # Public Subnet
 resource "aws_subnet" "Public_Subnet1" {
-  vpc_id            = aws_vpc.Node_Red_VPC.id
-  availability_zone = "${aws_vpc.Node_Red_VPC.region}a"
-  cidr_block        = "10.0.0.0/28"
+  vpc_id                  = aws_vpc.Node_Red_VPC.id
+  availability_zone       = "${aws_vpc.Node_Red_VPC.region}a"
+  cidr_block              = "10.0.0.0/28"
+  map_public_ip_on_launch = true
 }
 
 # Public Subnet 2
 resource "aws_subnet" "Public_Subnet2" {
-  vpc_id            = aws_vpc.Node_Red_VPC.id
-  availability_zone = "${aws_vpc.Node_Red_VPC.region}b"
-  cidr_block        = "10.0.0.16/28"
+  vpc_id                  = aws_vpc.Node_Red_VPC.id
+  availability_zone       = "${aws_vpc.Node_Red_VPC.region}b"
+  cidr_block              = "10.0.0.16/28"
+  map_public_ip_on_launch = true
 }
 
 
@@ -19,6 +21,7 @@ resource "aws_subnet" "Private_Subnet1" {
   vpc_id            = aws_vpc.Node_Red_VPC.id
   availability_zone = "${aws_vpc.Node_Red_VPC.region}a"
   cidr_block        = "10.0.0.32/28"
+  map_public_ip_on_launch = true
 }
 
 # Private Subnet 2
@@ -26,6 +29,7 @@ resource "aws_subnet" "Private_Subnet2" {
   vpc_id            = aws_vpc.Node_Red_VPC.id
   availability_zone = "${aws_vpc.Node_Red_VPC.region}b"
   cidr_block        = "10.0.0.48/28"
+  map_public_ip_on_launch = true
 }
 
 # Associate the Subnet to a route table
