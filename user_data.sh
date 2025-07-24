@@ -1,15 +1,7 @@
 #!/bin/bash
 yum update -y
 yum install -y nodejs22
-
-npm install -g --unsafe-perm node-red
-
 useradd node-red
-
-echo "${noderedService}" > /etc/systemd/system/nodered.service
-
-systemctl start nodered.service
-systemctl enable nodered.service
 
 mkdir -p /efs/nodeRed
 
@@ -17,12 +9,12 @@ mount -t nfs -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2
 
 echo "${efs_dns}:/ /efs/nodeRed nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport,_netdev 0 0" >> /etc/fstab
 
+echo "${pemFile}" > /home/ec2-user/labsuser.pem
+chmod 400 /home/ec2-user/labsuser.pem
 
 mkdir -p /efs/nodeRed/.node-red
 
 chown -R ec2-user:ec2-user /efs/nodeRed/
-
-# chown ec2-user:ec2-user /efs/nodeRed/ /efs/nodeRed/.node-red /efs/nodeRed/.node-red/Node-Red
 
 
 touch /etc/systemd/system/refreshLab.service
